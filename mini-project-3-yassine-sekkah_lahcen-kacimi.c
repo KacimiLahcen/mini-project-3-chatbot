@@ -26,14 +26,15 @@ int main()
 
     while (exit == 0)
     {
-        printf("Hi sir, How do u feel Today ?   ( type 'exit' or 'quit' to quit)\n");
+        printf("Chatbot : Hi sir, How do u feel Today ?  ( type 'exit' or 'quit' to quit)\n");
+        printf("You : ");
         fgets(UserAnswer, sizeof(UserAnswer), stdin);
 
         UserAnswer[strcspn(UserAnswer, "\n")] = '\0';
 
         if (strcmp(UserAnswer, "exit") == 0 || strcmp(UserAnswer, "quit") == 0)
         {
-            printf("Goodbye!\n");
+            printf("Chatbot : Goodbye!\n");
             exit = 1;
             break;
         }
@@ -45,6 +46,7 @@ int main()
             if (ContainsKeyword(UserAnswer, positifs[i]))
             {
                 int randomIndex = rand() % sizeof(positifs) / sizeof(positifs[0]);
+                printf("Chatbot : ");
                 printf("%s\n", PositifsReponses[randomIndex]); // Choose a response
                 found = 1;
                 break;
@@ -57,6 +59,7 @@ int main()
                 if (ContainsKeyword(UserAnswer, negatifs[i]))
                 {
                     int randomIndex = rand() % sizeof(negatifs) / sizeof(negatifs[0]);
+                    printf("Chatbot : ");
                     printf("%s\n", NegatifsReponses[randomIndex]);
                     found = 1;
                     break;
@@ -70,6 +73,7 @@ int main()
                 if (ContainsKeyword(UserAnswer, neutre[i]))
                 {
                     int randomIndex = rand() % sizeof(neutre) / sizeof(neutre[0]);
+                    printf("Chatbot : ");
                     printf("%s\n", NeutreReponses[randomIndex]);
                     found = 1;
                     break;
@@ -78,7 +82,7 @@ int main()
         }
         if (!found)
         {
-            printf("Sorry, I didn't understand that.\n");
+            printf("Chatbot : Sorry, I didn't understand that.\n");
         }
     }
 
